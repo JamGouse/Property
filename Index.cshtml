@@ -469,19 +469,25 @@
                     </a>
 
                     <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Golden Family House</a>
+                        <a href="#" class="title">@Html.DisplayFor(modelItem => item.Property.Title)</a>
 
-                        <div class="location">@Html.DisplayFor(modelItem => item.Property.Address.City)</div>
+                        <div class="location">
+                            @Html.DisplayFor(modelItem => item.Property.Address.Name),
+                            @Html.DisplayFor(modelItem => item.Property.Address.Number),
+                        @Html.DisplayFor(modelItem => item.Property.Address.AreaName),
+                            @Html.DisplayFor(modelItem => item.Property.Address.City),
+                        @Html.DisplayFor(modelItem => item.Property.Address.State)</div>
                         <div class="desc">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse et eum atque ipsa amet, iusto suscipit quo.
                             @*@item.Review.Description*@
                         </div>
                         <div class="bottom-sec clearfix">
                             <div class="extra-info">
-                                <div class="bedroom"><div class="value">3</div>bedroom</div>
-                                <div class="bathroom"><div class="value">2</div>bathroom</div>
+                                <div class="bedroom"><div class="value">@Html.DisplayFor(ModelItem => item.Property.NumberOfRooms)</div> Bedroom</div>
+                                <div class="bathroom"><div class="value">@Html.DisplayFor(modelItem => item.Property.Baths)</div> bathroom</div>
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
+                            <span class="pull-right"><a href="@Url.Action("Details", "FrontEnd", new { PID = @item.Property.ID })" class="btn btn-default add-to-cart hire-agent"><i class="fa fa-user"></i>Hire Agent</a></span>
+                            @*<a href="#" class="btn btn-default add-to-cart h">More Info</a>*@
                         </div>
                     </div>
                 </div>
@@ -753,15 +759,19 @@
 <section id="top-agents" class="container">
     <h2 class="hsq-heading type-2">Top Agents</h2>
     <div class="agent-box-container owl-carousel owl-theme clearfix">
+@foreach (var item in Model.PropertyPhoto)
+{
         <div class="agent-box">
             <div class="inner-container">
+
                 <a href="#" class="img-container">
-                    <img src="assets/img/agents/1.jpg" alt="Agent Image">
+                    <img src="@Html.DisplayFor(modelItem => item.Property.Agent.ProfileImage)" alt="Agent Image">
                 </a>
                 <div class="bott-sec">
-                    <div class="name">Sara Carrey</div>
+                    <div class="name">@Html.DisplayFor(modelItem => item.Property.Agent.FirstName) @Html.DisplayFor(modelItem => item.Property.Agent.LastName)</div>
                     <div class="title">Certificated Agent</div>
                     <div class="desc">
+                        @Html.DisplayFor(modelItem => item.Property.Agent.Roles)
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim quod repudiandae vel. Animi debitis id numquam veniam veritatis.
                     </div>
                     <a href="#" class="view-listing">View Listing</a>
@@ -773,8 +783,10 @@
                     </div>
                 </div>
             </div>
+            
         </div>
-        <div class="agent-box">
+}
+        @*<div class="agent-box">
             <div class="inner-container">
                 <a href="#" class="img-container">
                     <img src="assets/img/agents/2.jpg" alt="Agent Image">
@@ -878,7 +890,9 @@
                     </div>
                 </div>
             </div>
+            </div>*@
+        <!-- Ag
         </div>
     </div>
 </section>
-<!-- End of Top Agents -->
+hellooooo
