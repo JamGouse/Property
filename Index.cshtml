@@ -450,263 +450,269 @@
     <h2 class="hsq-heading type-2">Featured Properties</h2>
 
     <div class="property-box-container owl-carousel owl-theme">
-@foreach (var item in Model.PropertyPhoto)
-{
-        <div class="item">
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        @if (item.Photo != null)
-                        {
-                            <img src="~/Content/Uploads/Properties/Small/@Html.DisplayFor(modelItem => item.Photo.PhotoTitle)" title="@Html.DisplayFor(modelItem => item.Property.Title)" alt="@Html.DisplayFor(modelItem => item.Photo.AltText)" />
-                        }
-                        else
-                        {
-                            <img src="~/Content/Uploads/Properties/Small/no-photo.jpg" title="@Html.DisplayFor(modelItem => item.Property.Title)" alt="@Html.DisplayFor(modelItem => item.Property.Title)" />
-                        }
-                        @*<img src="assets/img/property/5.jpg" alt="Image of Property">*@
-                        <span class="price-box">@Html.DisplayFor(modelItem => item.Property.Price)</span>
-                    </a>
+        @foreach (var item in Model.PropertyPhoto)
+        {
+            <div class="item">
+                <div class="propertybox-featured wow fadeInUp">
+                    <div class="inner-container clearfix">
+                        <a href="#" class="img-container col-xs-6">
+                            @if (item.Photo != null)
+                            {
+                                <img src="~/Content/Uploads/Properties/Small/@Html.DisplayFor(modelItem => item.Photo.PhotoTitle)" title="@Html.DisplayFor(modelItem => item.Property.Title)" alt="@Html.DisplayFor(modelItem => item.Photo.AltText)" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/Uploads/Properties/Small/no-photo.jpg" title="@Html.DisplayFor(modelItem => item.Property.Title)" alt="@Html.DisplayFor(modelItem => item.Property.Title)" />
+                            }
+                            @*<img src="assets/img/property/5.jpg" alt="Image of Property">*@
+                            <span class="price-box">@Html.DisplayFor(modelItem => item.Property.Price)</span>
+                        </a>
 
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Golden Family House</a>
+                        <div class="col-xs-6 main-info">
+                            <a href="#" class="title">@Html.DisplayFor(modelItem => item.Property.Title)</a>
 
-                        <div class="location">@Html.DisplayFor(modelItem => item.Property.Address.City)</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse et eum atque ipsa amet, iusto suscipit quo.
-                            @*@item.Review.Description*@
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom"><div class="value">3</div>bedroom</div>
-                                <div class="bathroom"><div class="value">2</div>bathroom</div>
+                            <div class="location">
+                                @Html.DisplayFor(modelItem => item.Property.Address.Name),
+                                @Html.DisplayFor(modelItem => item.Property.Address.Number),
+                                @Html.DisplayFor(modelItem => item.Property.Address.AreaName),
+                                @Html.DisplayFor(modelItem => item.Property.Address.City),
+                                @Html.DisplayFor(modelItem => item.Property.Address.State)
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
+                            <div class="desc">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse et eum atque ipsa amet, iusto suscipit quo.
+                                @*@item.Review.Description*@
+                            </div>
+                            <div class="bottom-sec clearfix">
+                                <div class="extra-info">
+                                    <div class="bedroom"><div class="value">@Html.DisplayFor(ModelItem => item.Property.NumberOfRooms)</div> Bedroom</div>
+                                    <div class="bathroom"><div class="value">@Html.DisplayFor(modelItem => item.Property.Baths)</div> bathroom</div>
+                                </div>
+                                <span class="pull-right"><a href="@Url.Action("Details", "FrontEnd", new { PID = @item.Property.ID })" class="btn btn-default add-to-cart hire-agent"><i class="fa fa-user"></i>Hire Agent</a></span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                @*<div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/6.jpg" alt="Image of Property">
+                                <span class="price-box">$850,300</span>
+                            </a>
+
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Great Villa</a>
+
+                                <div class="location">Wade Avenue, Raleigh, North Carolina</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
+                                </div>
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">2</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">1</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
             </div>
-            @*<div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/6.jpg" alt="Image of Property">
-                        <span class="price-box">$850,300</span>
-                    </a>
+            @*<div class="item">
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/7.jpg" alt="Image of Property">
+                                <span class="price-box">$1,800,000</span>
+                            </a>
 
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Great Villa</a>
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Single Family Home</a>
 
-                        <div class="location">Wade Avenue, Raleigh, North Carolina</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">2</div>
-                                    bedroom
+                                <div class="location">River Dr E, Skykomish, WA</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse et eum atque ipsa amet, iusto suscipit quo.
                                 </div>
-                                <div class="bathroom">
-                                    <div class="value">1</div>
-                                    bathroom
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">4</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom"><div class="value">2</div>bathroom</div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
                                 </div>
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
+                        </div>
+                    </div>
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/8.jpg" alt="Image of Property">
+                                <span class="price-box">$998,320</span>
+                            </a>
+
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Cozy Villa in Suburb</a>
+
+                                <div class="location">Wenatchee Ave, Wenatchee, WA</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
+                                </div>
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">3</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">1</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>*@
-        </div>
-        @*<div class="item">
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/7.jpg" alt="Image of Property">
-                        <span class="price-box">$1,800,000</span>
-                    </a>
+                <div class="item">
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/9.jpg" alt="Image of Property">
+                                <span class="price-box">$898,500</span>
+                            </a>
 
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Single Family Home</a>
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Luxury Villa</a>
 
-                        <div class="location">River Dr E, Skykomish, WA</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">4</div>
-                                    bedroom
+                                <div class="location">Main Street, Wake Forest, North Carolina</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
                                 </div>
-                                <div class="bathroom"><div class="value">2</div>bathroom</div>
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">3</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">2</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
+                                </div>
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
+                        </div>
+                    </div>
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/10.jpg" alt="Image of Property">
+                                <span class="price-box">$1,852,300</span>
+                            </a>
+
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">House with Great View</a>
+
+                                <div class="location">Millbrook Road, Raleigh, North Carolina</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
+                                </div>
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">3</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">2</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/8.jpg" alt="Image of Property">
-                        <span class="price-box">$998,320</span>
-                    </a>
+                <div class="item">
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/11.jpg" alt="Image of Property">
+                                <span class="price-box">$958,000</span>
+                            </a>
 
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Cozy Villa in Suburb</a>
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Modern Apartment</a>
 
-                        <div class="location">Wenatchee Ave, Wenatchee, WA</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">3</div>
-                                    bedroom
+                                <div class="location">Broadway, Los Angles, California</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
                                 </div>
-                                <div class="bathroom">
-                                    <div class="value">1</div>
-                                    bathroom
-                                </div>
-                            </div>
-                            <a href="#" class="btn more-link">More Info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/9.jpg" alt="Image of Property">
-                        <span class="price-box">$898,500</span>
-                    </a>
-
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Luxury Villa</a>
-
-                        <div class="location">Main Street, Wake Forest, North Carolina</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">3</div>
-                                    bedroom
-                                </div>
-                                <div class="bathroom">
-                                    <div class="value">2</div>
-                                    bathroom
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">2</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">1</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
                                 </div>
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/10.jpg" alt="Image of Property">
-                        <span class="price-box">$1,852,300</span>
-                    </a>
+                    <div class="propertybox-featured wow fadeInUp">
+                        <div class="inner-container clearfix">
+                            <a href="#" class="img-container col-xs-6">
+                                <img src="assets/img/property/4.jpg" alt="Image of Property">
+                                <span class="price-box">$851,000</span>
+                            </a>
 
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">House with Great View</a>
+                            <div class="col-xs-6 main-info">
+                                <a href="#" class="title">Luxury Apartment</a>
 
-                        <div class="location">Millbrook Road, Raleigh, North Carolina</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">3</div>
-                                    bedroom
+                                <div class="location">Wade Avenue, Raleigh, North Carolina</div>
+                                <div class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
+                                    et eum atque ipsa amet, iusto suscipit quo.
                                 </div>
-                                <div class="bathroom">
-                                    <div class="value">2</div>
-                                    bathroom
+                                <div class="bottom-sec clearfix">
+                                    <div class="extra-info">
+                                        <div class="bedroom">
+                                            <div class="value">4</div>
+                                            bedroom
+                                        </div>
+                                        <div class="bathroom">
+                                            <div class="value">3</div>
+                                            bathroom
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn more-link">More Info</a>
                                 </div>
                             </div>
-                            <a href="#" class="btn more-link">More Info</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/11.jpg" alt="Image of Property">
-                        <span class="price-box">$958,000</span>
-                    </a>
-
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Modern Apartment</a>
-
-                        <div class="location">Broadway, Los Angles, California</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">2</div>
-                                    bedroom
-                                </div>
-                                <div class="bathroom">
-                                    <div class="value">1</div>
-                                    bathroom
-                                </div>
-                            </div>
-                            <a href="#" class="btn more-link">More Info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="propertybox-featured wow fadeInUp">
-                <div class="inner-container clearfix">
-                    <a href="#" class="img-container col-xs-6">
-                        <img src="assets/img/property/4.jpg" alt="Image of Property">
-                        <span class="price-box">$851,000</span>
-                    </a>
-
-                    <div class="col-xs-6 main-info">
-                        <a href="#" class="title">Luxury Apartment</a>
-
-                        <div class="location">Wade Avenue, Raleigh, North Carolina</div>
-                        <div class="desc">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias impedit autem esse
-                            et eum atque ipsa amet, iusto suscipit quo.
-                        </div>
-                        <div class="bottom-sec clearfix">
-                            <div class="extra-info">
-                                <div class="bedroom">
-                                    <div class="value">4</div>
-                                    bedroom
-                                </div>
-                                <div class="bathroom">
-                                    <div class="value">3</div>
-                                    bathroom
-                                </div>
-                            </div>
-                            <a href="#" class="btn more-link">More Info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-}
+                </div>*@
+        }
     </div>
 </section>
 <!-- End of Featured Properties -->
@@ -753,15 +759,19 @@
 <section id="top-agents" class="container">
     <h2 class="hsq-heading type-2">Top Agents</h2>
     <div class="agent-box-container owl-carousel owl-theme clearfix">
-        <div class="agent-box">
+       @foreach (var item in Model.PropertyPhoto)
+{
+         <div class="agent-box">
             <div class="inner-container">
+
                 <a href="#" class="img-container">
-                    <img src="assets/img/agents/1.jpg" alt="Agent Image">
+                    <img src="@Html.DisplayFor(modelItem => item.Property.Agent.ProfileImage)" alt="Agent Image">
                 </a>
                 <div class="bott-sec">
-                    <div class="name">Sara Carrey</div>
+                    <div class="name">@Html.DisplayFor(modelItem => item.Property.Agent.FirstName) @Html.DisplayFor(modelItem => item.Property.Agent.LastName)</div>
                     <div class="title">Certificated Agent</div>
                     <div class="desc">
+                        @Html.DisplayFor(modelItem => item.Property.Agent.Roles)
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim quod repudiandae vel. Animi debitis id numquam veniam veritatis.
                     </div>
                     <a href="#" class="view-listing">View Listing</a>
@@ -773,8 +783,10 @@
                     </div>
                 </div>
             </div>
+            
         </div>
-        <div class="agent-box">
+       }
+        @*<div class="agent-box">
             <div class="inner-container">
                 <a href="#" class="img-container">
                     <img src="assets/img/agents/2.jpg" alt="Agent Image">
@@ -877,8 +889,8 @@
                         <a href="#" class="fa fa-google-plus"></a>
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
-    </div>
+    
 </section>
 <!-- End of Top Agents -->
